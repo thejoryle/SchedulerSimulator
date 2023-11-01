@@ -9,6 +9,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class Tests {
+    private final String TEST_A_FILE = "tests/test_a.txt";
+    private final String TEST_B_FILE = "tests/test_b.txt";
+    private final String TEST_C_FILE = "tests/test_c.txt";
+
+    // Parser Tests
+    //
     @Test
     public void testListParseAndSort() throws FileNotFoundException {
         String[] testInput = {"tests/test_c.txt"};
@@ -62,5 +68,67 @@ public class Tests {
             flag = true;
         }
         assertTrue(flag);
+    }
+    //
+    // End Parser tests
+
+    //FIFO tests
+    //
+    @Test
+    public void testFIFOa() throws FileNotFoundException {
+        String[] input = {TEST_A_FILE};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+
+    @Test
+    public void testFIFOb() throws FileNotFoundException {
+        String[] input = {TEST_B_FILE};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+
+    @Test
+    public void testFIFOc() throws FileNotFoundException {
+        String[] input = {TEST_C_FILE};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+    //
+    // End FIFO tests
+
+    // SRTN tests
+    //
+    @Test
+    public void testSRTNa() throws FileNotFoundException {
+        String[] input = {TEST_A_FILE, "-p", "SRTN"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+
+    @Test
+    public void testSRTNb() throws FileNotFoundException {
+        String[] input = {TEST_B_FILE, "-p", "SRTN"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+
+    @Test
+    public void testSRTNc() throws FileNotFoundException {
+        String[] input = {TEST_C_FILE, "-p", "SRTN"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
     }
 }

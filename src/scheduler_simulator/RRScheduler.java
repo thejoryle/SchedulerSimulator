@@ -9,4 +9,8 @@ public class RRScheduler implements Scheduler{
     public void runScheduler(){
 
     }
+
+    public void printResults(){
+
+    }
 }
