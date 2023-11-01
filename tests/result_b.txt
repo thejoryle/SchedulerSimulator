@@ -1,0 +1,28 @@
+A mid-complexity case with dispirate burst times and
+some overlapping arrival times. SRTN was expected to have the
+best turnaround and wait times, with FIFO expected to be the worst.
+FIFO and RR(q=2) performed very similarly in this scenario as well.
+
+FIFO:
+Job   0 -- Turnaround   8.00 Wait   0.00
+Job   1 -- Turnaround  19.00 Wait   7.00
+Job   2 -- Turnaround  20.00 Wait  17.00
+Job   3 -- Turnaround  25.00 Wait  19.00
+Job   4 -- Turnaround  28.00 Wait  25.00
+Average -- Turnaround  20.00 Wait  13.60
+
+SRTN:
+Job   0 -- Turnaround  14.00 Wait   6.00
+Job   1 -- Turnaround  31.00 Wait  19.00
+Job   2 -- Turnaround   3.00 Wait   0.00
+Job   3 -- Turnaround  16.00 Wait  10.00
+Job   4 -- Turnaround   5.00 Wait   2.00
+Average -- Turnaround  13.80 Wait   7.40
+
+RR(q = 2):
+Job   0 -- Turnaround  26.00 Wait  18.00
+Job   1 -- Turnaround  31.00 Wait  19.00
+Job   2 -- Turnaround  12.00 Wait   9.00
+Job   3 -- Turnaround  20.00 Wait  14.00
+Job   4 -- Turnaround  14.00 Wait  11.00
+Average -- Turnaround  20.60 Wait  14.20

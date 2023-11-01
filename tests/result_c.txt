@@ -1,0 +1,36 @@
+A higher complexity test case with multiple instances 
+of duplicate arrival times and edge cases where shortest
+remaining time conflicts at certain points. Edge case handling
+unspecified at the time, SRTN ran with lowest value job number 
+priority at conflicts (ie. Job 0 runs before Job 2 if same remaining
+time and neither were the previous running process).
+
+FIFO:
+Job   0 -- Turnaround   5.00 Wait   0.00
+Job   1 -- Turnaround  13.00 Wait   5.00
+Job   2 -- Turnaround  14.00 Wait  11.00
+Job   3 -- Turnaround  15.00 Wait  14.00
+Job   4 -- Turnaround  18.00 Wait  14.00
+Job   5 -- Turnaround  22.00 Wait  17.00
+Job   6 -- Turnaround  25.00 Wait  22.00
+Average -- Turnaround  16.00 Wait  11.86
+
+SRTN:
+Job   0 -- Turnaround   6.00 Wait   1.00
+Job   1 -- Turnaround  29.00 Wait  21.00
+Job   2 -- Turnaround   7.00 Wait   4.00
+Job   3 -- Turnaround   1.00 Wait   0.00
+Job   4 -- Turnaround  13.00 Wait   9.00
+Job   5 -- Turnaround  17.00 Wait  12.00
+Job   6 -- Turnaround   8.00 Wait   5.00
+Average -- Turnaround  11.57 Wait   7.43
+
+RR(q=1):
+Job   0 -- Turnaround  24.00 Wait  19.00
+Job   1 -- Turnaround  29.00 Wait  21.00
+Job   2 -- Turnaround  14.00 Wait  11.00
+Job   3 -- Turnaround   2.00 Wait   1.00
+Job   4 -- Turnaround  19.00 Wait  15.00
+Job   5 -- Turnaround  22.00 Wait  17.00
+Job   6 -- Turnaround  15.00 Wait  12.00
+Average -- Turnaround  17.86 Wait  13.71

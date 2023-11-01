@@ -21,7 +21,8 @@ public class InputParser {
             // convert file to a list of jobs sorted in ascending arrival time
             File jobsFile = new File(input[0]);
             this.fileReader = new Scanner(jobsFile);
-            this.fileToSortedJobList();
+            this.fileToUnsortedJobList();
+            this.stableSortJobs();
 
             // parse options to determine scheduler quantum and algorithm
             this.quantum = 1;
@@ -58,15 +59,18 @@ public class InputParser {
 
     public Scheduler craftScheduler(){
         if(this.algoType == AlgoType.FIFO){
-            return new RRScheduler(this.sortedJobList, this.quantum);
+            return new FIFOScheduler(this.sortedJobList);
         } else if (this.algoType == AlgoType.SRTN){
             return new SRTNScheduler(this.sortedJobList);
         } else {
-            return new FIFOScheduler(this.sortedJobList);
+            return new RRScheduler(this.sortedJobList, this.quantum);
         }
     }
 
-    private List<Job> fileToSortedJobList(){
+    public List<Job> getSortedJobList(){ return new ArrayList<>(this.sortedJobList); }
+    public AlgoType getAlgoType(){ return this.algoType; }
+    public int getQuantum(){ return this.quantum; }
+    private void fileToUnsortedJobList(){
         int burst;
         int arrival;
         while(this.fileReader.hasNext()){
@@ -74,13 +78,13 @@ public class InputParser {
             arrival = this.fileReader.nextInt();
             this.sortedJobList.add(new Job(burst, arrival));
         }
+    }
 
+    private void stableSortJobs(){
         this.sortedJobList.sort(new Job.sortByArrival());
         for(int i = 0; i < this.sortedJobList.size(); i++){
             this.sortedJobList.get(i).setJobNumber(i);
         }
-
-        return this.sortedJobList;
     }
 
     private AlgoType parseAlgoOption(String option){

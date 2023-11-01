@@ -1,0 +1,27 @@
+Simple case where all jobs arrive at time 0 with non-increasing burst time.
+A scenario where SRTF should win out and FIFO should be poor. Interestingly,
+FIFO was better than RR(q=2) in this case.
+
+FIFO:
+Job   0 -- Turnaround   5.00 Wait   0.00
+Job   1 -- Turnaround   9.00 Wait   5.00
+Job   2 -- Turnaround  11.00 Wait   9.00
+Job   3 -- Turnaround  12.00 Wait  11.00
+Job   4 -- Turnaround  15.00 Wait  12.00
+Average -- Turnaround  10.40 Wait   7.40
+
+SRTN:
+Job   0 -- Turnaround  15.00 Wait  10.00
+Job   1 -- Turnaround  10.00 Wait   6.00
+Job   2 -- Turnaround   3.00 wait   1.00
+Job   3 -- Turnaround   1.00 Wait   0.00
+Job   4 -- Turnaround   6.00 Wait   4.00
+Average -- Turnaround   7.00 Wait   4.20
+
+RR:(q = 2)
+Job   0 -- Turnaround  15.00 Wait  10.00
+Job   1 -- Turnaround  13.00 Wait   9.00
+Job   2 -- Turnaround   5.00 wait   3.00
+Job   3 -- Turnaround   7.00 Wait   6.00
+Job   4 -- Turnaround  14.00 Wait  11.00
+Average -- Turnaround  10.80 Wait   7.80

@@ -15,7 +15,7 @@ public class Job {
         this.burstTime = burstTime;
         this.arrivalTime = arrivalTime;
         this.jobNumber = Integer.MIN_VALUE;
-        this.remainingTime = Integer.MIN_VALUE;
+        this.remainingTime = this.burstTime;
         this.timeCompleted = Integer.MIN_VALUE;
         this.turnaroundTime = Integer.MIN_VALUE;
         this.waitingTime = Integer.MIN_VALUE;
@@ -42,5 +42,20 @@ public class Job {
         public int compare(Job a, Job b){
             return a.arrivalTime - b.arrivalTime;
         }
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Job: ");
+        sb.append(this.jobNumber);
+        sb.append('\n');
+        sb.append("Burst: ");
+        sb.append(this.burstTime);
+        sb.append('\n');
+        sb.append("Arrival: ");
+        sb.append(this.arrivalTime);
+        sb.append('\n');
+        return sb.toString();
     }
 }
