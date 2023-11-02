@@ -131,4 +131,42 @@ public class Tests {
         sched.runScheduler();
         sched.printResults();
     }
+    //
+    // End SRTN tests
+
+    // RR Tests
+    //
+    @Test
+    public void testRRaQ2() throws FileNotFoundException {
+        String[] input = {TEST_A_FILE, "-p", "RR", "-q", "2"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+    @Test
+    public void testRRbQ2() throws FileNotFoundException {
+        String[] input = {TEST_B_FILE, "-p", "RR", "-q", "2"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+    @Test
+    public void testRRcQDefault() throws FileNotFoundException {
+        String[] input = {TEST_C_FILE, "-p", "RR"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
+
+    @Test
+    public void testRRProfEx() throws FileNotFoundException {
+        String[] input = {"tests/rr.txt", "-p", "RR", "-q", "4"};
+        InputParser parser = new InputParser(input);
+        Scheduler sched = parser.craftScheduler();
+        sched.runScheduler();
+        sched.printResults();
+    }
 }

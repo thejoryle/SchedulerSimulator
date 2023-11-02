@@ -21,7 +21,7 @@ Average -- Turnaround   7.00 Wait   4.00
 RR:(q = 2)
 Job   0 -- Turnaround  15.00 Wait  10.00
 Job   1 -- Turnaround  13.00 Wait   9.00
-Job   2 -- Turnaround   5.00 wait   3.00
+Job   2 -- Turnaround   6.00 wait   4.00
 Job   3 -- Turnaround   7.00 Wait   6.00
 Job   4 -- Turnaround  14.00 Wait  11.00
 Average -- Turnaround  10.80 Wait   7.80
